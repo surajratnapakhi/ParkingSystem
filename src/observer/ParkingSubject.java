@@ -1,0 +1,6 @@
+package observer;
+
+public interface ParkingSubject {
+    void registerObserver(ParkingObserver observer);
+    void removeObserver(ParkingObserver observer);
+}
