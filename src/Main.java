@@ -1,9 +1,13 @@
 import enums.VehicleType;
+import external.PayUClient;
+import external.RazorpayClient;
 import observer.DisplayBoard;
 import observer.FullCapacityAlertObserver;
 import observer.ParkingObserver;
 import parkinglot.ParkingLot;
 import parkinglot.Ticket;
+import payment.PayUAdapter;
+import payment.RazorPayAdapter;
 import pricing.HourlyPricingStrategy;
 import vehicle.Car;
 import vehicle.MotorCycle;
@@ -22,6 +26,7 @@ public class Main {
 
         parkingLot.registerObserver(displayBoard);
         parkingLot.registerObserver(parkingFullAlert);
+
         Map<VehicleType, Double> ratePerHour = new HashMap<>();
         ratePerHour.put(VehicleType.CAR, 40.0);
         ratePerHour.put(VehicleType.MOTORCYCLE, 20.0);
@@ -31,7 +36,11 @@ public class Main {
         flatRate.put(VehicleType.CAR, 60.0);
         flatRate.put(VehicleType.MOTORCYCLE, 30.0);
         flatRate.put(VehicleType.TRUCK, 90.0);
+
         parkingLot.setPricingStrategy(new HourlyPricingStrategy(ratePerHour));
+
+//        parkingLot.setPaymentProcessor(new RazorPayAdapter(new RazorpayClient(), "MC:001"));
+        parkingLot.setPaymentProcessor(new PayUAdapter(new PayUClient()));
 
         Vehicle v1 = new Car("MH12 AA0001", false);
         Ticket t1 = parkingLot.assignSpot(v1, true);

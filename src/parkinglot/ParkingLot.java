@@ -4,6 +4,7 @@ import enums.SpotType;
 import observer.ParkingObserver;
 import observer.ParkingSubject;
 import parkingspot.ParkingSpot;
+import payment.PaymentProcessor;
 import pricing.*;
 import vehicle.Vehicle;
 
@@ -18,6 +19,7 @@ public class ParkingLot implements ParkingSubject {
     private List<ParkingSpot> spots;
     private List<ParkingObserver> observers;
     private PricingStrategy pricingStrategy;
+    private PaymentProcessor paymentProcessor;
 
     private ParkingLot(){
         spots = new ArrayList<>();
@@ -43,6 +45,9 @@ public class ParkingLot implements ParkingSubject {
         ParkingSpot T2 = new ParkingSpot("302", SpotType.LARGE);
         spots.add(T2);
 
+    }
+    public void setPaymentProcessor(PaymentProcessor paymentProcessor) {
+        this.paymentProcessor = paymentProcessor;
     }
     public static ParkingLot getInstance() {
         if(instance == null)
@@ -72,6 +77,10 @@ public class ParkingLot implements ParkingSubject {
         notifyObservers();
         ticket.markExit(LocalDateTime.now());
         calculateFare(ticket);
+        boolean paid = paymentProcessor.processPayment(ticket);
+        if(!paid){
+            System.out.println("Payment failed for " + ticket.getTicketID());
+        }
     }
 
     @Override

@@ -31,7 +31,9 @@ public class Ticket {
         this.entryTime = entryTime;
         this.wantsValet = wantsValet;
     }
-
+    public int getTicketID(){
+        return ticketID;
+    }
     public ParkingSpot getSpot() {
         return spot;
     }
