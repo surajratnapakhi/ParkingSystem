@@ -17,9 +17,8 @@ public class HourlyPricingStrategy implements PricingStrategy{
 
     @Override
     public double calculateFare(Ticket ticket) {
-
         Duration parkedDuration = Duration.between(ticket.getEntryTime(), ticket.getExitTime());
-        long hours = parkedDuration.toHours();
+        long hours = (long) Math.ceil(parkedDuration.toMinutes()/60.0);
         if(hours == 0) hours = 1;
         double rate = ratePerHour.getOrDefault(ticket.getVehicle().getType(), 20.0);
         return hours*rate;
