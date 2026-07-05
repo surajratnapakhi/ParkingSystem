@@ -52,6 +52,9 @@ public class Ticket {
     public LocalDateTime getExitTime() {
         return exitTime;
     }
+    public void setTentativeExitTime(LocalDateTime exitTime){
+        this.exitTime = exitTime;
+    }
 
     public void markExit(LocalDateTime exitTime){
         this.exitTime = exitTime;
