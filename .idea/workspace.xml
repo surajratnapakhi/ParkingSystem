@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d1281f8-d7ea-4b95-85a1-ffd7a1dd96ed" name="Changes" comment="Strategy pattern with HourlyPricingStrategy">
-      <change afterPath="$PROJECT_DIR$/src/pricing/EVChargingSurcharge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pricing/FlatRatePricingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pricing/PricingDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pricing/ValetSurcharge.java" afterDir="false" />
+    <list default="true" id="8d1281f8-d7ea-4b95-85a1-ffd7a1dd96ed" name="Changes" comment="Cleaned code from ParkingLot so that, it will not know about pricing. Also, tickedID is now thread safe.">
+      <change afterPath="$PROJECT_DIR$/src/external/PayUClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/external/RazorpayClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/payment/PayUAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/payment/PaymentProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/payment/RazorPayAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parkinglot/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parkinglot/ParkingLot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parkinglot/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parkinglot/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pricing/HourlyPricingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pricing/HourlyPricingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicle/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicle/MotorCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle/MotorCycle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicle/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle/Truck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -45,14 +41,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/preps/java/HandsOn/DesignPatterns/ParkingSystem_old/ParkingSystem"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/preps/java/HandsOn/DesignPatterns/ParkingSystem_old/ParkingSystem&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -83,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1783050765006</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cleaned code from ParkingLot so that, it will not know about pricing. Also, tickedID is now thread safe.">
+      <created>1783226484377</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1783226484377</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,6 +144,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Strategy pattern with HourlyPricingStrategy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Strategy pattern with HourlyPricingStrategy" />
+    <MESSAGE value="Cleaned code from ParkingLot so that, it will not know about pricing. Also, tickedID is now thread safe." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned code from ParkingLot so that, it will not know about pricing. Also, tickedID is now thread safe." />
   </component>
 </project>
