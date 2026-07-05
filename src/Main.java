@@ -8,6 +8,7 @@ import parkinglot.ParkingLot;
 import parkinglot.Ticket;
 import payment.PayUAdapter;
 import payment.RazorPayAdapter;
+import payment.RetryPaymentProcessor;
 import pricing.HourlyPricingStrategy;
 import vehicle.Car;
 import vehicle.MotorCycle;
@@ -40,7 +41,8 @@ public class Main {
         parkingLot.setPricingStrategy(new HourlyPricingStrategy(ratePerHour));
 
 //        parkingLot.setPaymentProcessor(new RazorPayAdapter(new RazorpayClient(), "MC:001"));
-        parkingLot.setPaymentProcessor(new PayUAdapter(new PayUClient()));
+//        parkingLot.setPaymentProcessor(new PayUAdapter(new PayUClient()));
+        parkingLot.setPaymentProcessor(new RetryPaymentProcessor(new PayUAdapter(new PayUClient()),3));
 
         Vehicle v1 = new Car("MH12 AA0001", false);
         Ticket t1 = parkingLot.assignSpot(v1, true);

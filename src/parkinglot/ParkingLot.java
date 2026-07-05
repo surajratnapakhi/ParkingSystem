@@ -73,14 +73,18 @@ public class ParkingLot implements ParkingSubject {
         return null;
     }
     public void releaseSpot(Ticket ticket){
-        ticket.getSpot().unParkVehicle();
-        notifyObservers();
-        ticket.markExit(LocalDateTime.now());
+        ticket.setTentativeExitTime(LocalDateTime.now());
         calculateFare(ticket);
+        if(paymentProcessor == null) throw new IllegalStateException("No payment processor has been set.");
         boolean paid = paymentProcessor.processPayment(ticket);
         if(!paid){
             System.out.println("Payment failed for " + ticket.getTicketID());
+        } else {
+            ticket.getSpot().unParkVehicle();
+            notifyObservers();
+            ticket.markExit(LocalDateTime.now());
         }
+
     }
 
     @Override
