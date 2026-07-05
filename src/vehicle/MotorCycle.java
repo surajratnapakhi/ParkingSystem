@@ -6,8 +6,8 @@ import enums.VehicleType;
 import java.util.List;
 
 public class MotorCycle extends Vehicle{
-    public MotorCycle(String licensePlate){
-        super(licensePlate, VehicleType.MOTORCYCLE);
+    public MotorCycle(String licensePlate, boolean isEV){
+        super(licensePlate, VehicleType.MOTORCYCLE, isEV);
     }
 
     @Override

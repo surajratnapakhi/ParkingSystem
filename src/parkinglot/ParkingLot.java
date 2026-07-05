@@ -1,10 +1,10 @@
 package parkinglot;
 
 import enums.SpotType;
-import enums.VehicleType;
 import observer.ParkingObserver;
 import observer.ParkingSubject;
 import parkingspot.ParkingSpot;
+import pricing.*;
 import vehicle.Vehicle;
 
 import java.time.LocalDateTime;
@@ -17,6 +17,8 @@ public class ParkingLot implements ParkingSubject {
     private static volatile ParkingLot instance;
     private List<ParkingSpot> spots;
     private List<ParkingObserver> observers;
+    private PricingStrategy pricingStrategy;
+
     private ParkingLot(){
         spots = new ArrayList<>();
         observers = new ArrayList<>();
@@ -40,6 +42,7 @@ public class ParkingLot implements ParkingSubject {
         spots.add(T1);
         ParkingSpot T2 = new ParkingSpot("302", SpotType.LARGE);
         spots.add(T2);
+
     }
     public static ParkingLot getInstance() {
         if(instance == null)
@@ -50,12 +53,12 @@ public class ParkingLot implements ParkingSubject {
 
         return instance;
     }
-    public Ticket assignSpot(Vehicle vehicle){
+    public Ticket assignSpot(Vehicle vehicle, boolean wantsValet){
         List<SpotType> spotTypes = vehicle.getListOfAcceptableSpotTypes();
         for(SpotType spotType : spotTypes) {
             for (ParkingSpot spot : spots) {
                 if (spot.getSpotType().equals(spotType) && spot.tryPark(vehicle)) {
-                    Ticket ticket = new Ticket(spot, vehicle, LocalDateTime.now());
+                    Ticket ticket = new Ticket(spot, wantsValet, vehicle, LocalDateTime.now());
                     notifyObservers();
 //                    System.out.println("Assigning the spot for vehicle : " + vehicle.getLicensePlate());
                     return ticket;
@@ -68,6 +71,7 @@ public class ParkingLot implements ParkingSubject {
         ticket.getSpot().unParkVehicle();
         notifyObservers();
         ticket.markExit(LocalDateTime.now());
+        calculateFare(ticket);
     }
 
     @Override
@@ -86,5 +90,16 @@ public class ParkingLot implements ParkingSubject {
         for (ParkingObserver observer : observers){
             observer.availabilityChanged(availabilityCountByType);
         }
+    }
+    public void setPricingStrategy(PricingStrategy pricingStrategy){
+        this.pricingStrategy = pricingStrategy;
+    }
+    private void calculateFare(Ticket ticket){
+        PricingStrategy strategy = pricingStrategy;
+        if(ticket.getVehicle().isEV())
+            strategy = new EVChargingSurcharge(strategy);
+        if(ticket.wantsValet())
+            strategy = new ValetSurcharge(strategy);
+        ticket.setFare(strategy.calculateFare(ticket));
     }
 }

@@ -4,24 +4,39 @@ import parkingspot.ParkingSpot;
 import vehicle.Vehicle;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Ticket {
-    private static int ticketID = 000;
+    private static final AtomicInteger ticketIDCounter = new AtomicInteger(0);
+    private final int ticketID;
     private ParkingSpot spot;
     private Vehicle vehicle;
     private LocalDateTime entryTime;
     private LocalDateTime exitTime;
-    private int fare;
+    private double fare;
+    private boolean wantsValet;
 
-    public Ticket(ParkingSpot spot, Vehicle vehicle, LocalDateTime entryTime) {
-        ticketID += 1;
+    public double getFare() {
+        return fare;
+    }
+
+    public void setFare(double fare) {
+        this.fare = fare;
+    }
+
+    public Ticket(ParkingSpot spot, boolean wantsValet, Vehicle vehicle, LocalDateTime entryTime) {
+        this.ticketID = ticketIDCounter.incrementAndGet();
         this.spot = spot;
         this.vehicle = vehicle;
         this.entryTime = entryTime;
+        this.wantsValet = wantsValet;
     }
 
     public ParkingSpot getSpot() {
         return spot;
+    }
+    public boolean wantsValet(){
+        return wantsValet;
     }
 
     public Vehicle getVehicle() {
@@ -40,15 +55,5 @@ public class Ticket {
         this.exitTime = exitTime;
     }
 
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "spot=" + spot +
-                ", vehicle=" + vehicle +
-                ", entryTime=" + entryTime +
-                ", exitTime=" + exitTime +
-                ", fare=" + fare +
-                '}';
-    }
 
 }

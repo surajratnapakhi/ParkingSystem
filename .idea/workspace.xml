@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d1281f8-d7ea-4b95-85a1-ffd7a1dd96ed" name="Changes" comment="Strategy pattern with HourlyPricingStrategy">
-      <change afterPath="$PROJECT_DIR$/src/pricing/HourlyPricingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pricing/PricingStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pricing/EVChargingSurcharge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pricing/FlatRatePricingStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pricing/PricingDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pricing/ValetSurcharge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parkinglot/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parkinglot/ParkingLot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parkinglot/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parkinglot/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pricing/HourlyPricingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pricing/HourlyPricingStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vehicle/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vehicle/MotorCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle/MotorCycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vehicle/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle/Truck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vehicle/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -66,6 +76,14 @@
       <option name="presentableId" value="Default" />
       <updated>1782056886840</updated>
     </task>
+    <task id="LOCAL-00001" summary="Strategy pattern with HourlyPricingStrategy">
+      <created>1783050765006</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1783050765006</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,6 +106,36 @@
             </State>
           </value>
         </entry>
+        <entry key="f84c3477-d50f-460f-90c3-30d6c1d440cd">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="f84c3477-d50f-460f-90c3-30d6c1d440cd" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
